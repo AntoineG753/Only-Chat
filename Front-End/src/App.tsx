@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import Home from './layouts/Home';
 import ErreurPage from './layouts/ErreurPage';
-
+import Connection from './layouts/Connection';
 
 function App() {
 
@@ -10,8 +10,9 @@ function App() {
     <div className="App">
       <BrowserRouter >
         <Routes>
+          <Route path="/err" element={<ErreurPage/>} />
           <Route path="/home" element={<Home/>} />
-          <Route path="/" element={<ErreurPage/>} />
+          <Route path="/" element={<Connection/>} />
         </Routes>
       </BrowserRouter>
     </div>
