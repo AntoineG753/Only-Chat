@@ -13,9 +13,8 @@ const Connection: React.FC<Props> = ({ loginOK, setloginOK}: Props) => {
     
   return (
     <div className="login-main-container bg-color-107 position-absolute h-100 w-100 d-flex justify-content-center align-items-center">
-     
       {registerCP === false && <LoginCP registerCP={registerCP} setregisterCP={setregisterCP} loginOK={loginOK} setloginOK={setloginOK} />}
-      {registerCP === true && <RegisterCP registerCP={registerCP} setregisterCP={setregisterCP} loginOK={loginOK} setloginOK={setloginOK} />}
+      {registerCP === true && <RegisterCP registerCP={registerCP} setregisterCP={setregisterCP} loginOK={loginOK} setloginOK={setloginOK}/>}
     </div>
   );
 }

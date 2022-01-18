@@ -11,6 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#root {
+  height: 100vh;
+}
+.App {
+  height: 100vh;
+}
 
 button, input[type="submit"], input[type="reset"] {
 	background: none;
@@ -24,6 +30,13 @@ button, input[type="submit"], input[type="reset"] {
 p {
   color: #fff;
 }
+textarea:focus {
+  border: none;
+  outline: none;
+
+}
+
+
 .home-container {
   flex-grow: 2;
 }
@@ -40,7 +53,7 @@ p {
 
 
 .bg-color-107{
-  background-color: rgb(107, 107, 107);
+  background-color: rgb(74, 78, 85);
 }
 
 .bg-color-darkSM {
@@ -51,6 +64,9 @@ p {
   background-color:rgb(41, 43, 48)
 }
 
+.home-main-container {
+  height: 100vh;
+}
 
 .LoginCP-container{
   width: 30vw;
@@ -76,6 +92,12 @@ p {
   font-size: 0.7rem;
 }
 
+
+/* HEADER ------------------- */
+.HeaderCP-main-container {
+  border-bottom: 2px solid rgb(33, 35, 39)
+}
+
 /* FORM LOGGIN ---------------------------- */
 .LoginCP-container, .RegisterCP-container {
   min-height: 24rem;
@@ -85,3 +107,21 @@ p {
 .logout-main-container {
   background-color: rgb(175, 175, 175);
 }
+
+
+/* CHATCP ---------------------- */
+.Chat-main-container {
+  flex-grow: 1;
+}
+.fa-paper-plane {
+  color: rgb(148, 156, 247);
+  font-size: 5vw;
+}
+.fa-folder-plus {
+  color: rgb(185, 187, 190);
+  font-size: 6.5vw;
+}
+.fa-sync-alt {
+  font-size: 6.5vw;
+}
+

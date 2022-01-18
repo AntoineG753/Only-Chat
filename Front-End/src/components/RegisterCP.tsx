@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -10,8 +11,9 @@ type register = { [x: string]: any;}
 type Props = {registerCP: Boolean, setregisterCP: Function, loginOK: Boolean, setloginOK: Function}
 
 const RegisterCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setloginOK}: Props) => {
+    const navigate = useNavigate()
     const { register, handleSubmit, reset } = useForm();
-    const [secretKey, setsecretKey] = useState<string>("");
+    const dispatch = useDispatch();
     const [errStatus, seterrStatus] = useState<number>();
     let registerData : {pseudo: string};
     
@@ -34,9 +36,10 @@ const RegisterCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setlo
                 reset();
                 console.log(res);
                 Cookies.set('token', `${res.data.token}`, { expires: 1 });
-                setsecretKey(res.data.secretKey);
+                
                 setloginOK(true);
-                window.location.href = '/home';
+                // window.location.href = '/home';
+                navigate('/home')
             })
             .catch(error => {seterrStatus(error.response.status);})  
         } else {
@@ -52,7 +55,7 @@ const RegisterCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setlo
     }
 
     function cancelRegister() {
-      console.log('dddd')
+      
       setregisterCP(false)
     }
 

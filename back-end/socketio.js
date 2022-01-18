@@ -16,10 +16,28 @@ export const socketIO = (server) => {
   });
 
   io.on("connection", (socket) => {
+    let _user = [];
     console.log("un utilisateru c'est connecté: " + socket.id);
+    
 
+    socket.on("userLogged", (user) => {
+      
+      const User = {
+        uuid: user.uuid,
+        pseudo: user.pseudo,
+        admin: user.admin,
+        ban: user.ban,
+        number_connections: user.number_connections,
+        creation_date: user.creation_date,
+        id_socket: socket.id,
+      };
 
-
+      console.log(User);
+      _user = User;
+      console.log(socket.id);
+      userConnected.push(User);
+      io.emit("userConnected", userConnected);
+    });
 
     //enter the ramdom room
     socket.on("enter_room", (room) => {

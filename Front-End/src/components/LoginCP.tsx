@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
+import { useNavigate } from "react-router-dom";
 
 type login = {[x: string]: string}
 type Props = {registerCP: Boolean, setregisterCP: Function, loginOK: Boolean, setloginOK: Function}
 
 const LoginCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setloginOK }: Props) => {
+    const navigate = useNavigate()
     const { register, handleSubmit, reset } = useForm();
     const  [errorMsg, seterrorMsg] = useState<string>("");
     const [errStatus, seterrStatus] = useState<number>();
@@ -28,7 +29,7 @@ const LoginCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setlogin
               console.log(res);
               Cookies.set('token', `${res.data.token}`, { expires: 1 });
               setloginOK(true);
-              window.location.href = '/home';
+              navigate('/home')
           })
           .catch(error => {seterrStatus(error.response.status); seterrorMsg(error.response.data.msg); console.log(error)})  
       } else {

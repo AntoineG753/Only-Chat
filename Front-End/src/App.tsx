@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const App: React.FC = () => {
- 
+  
   const [loginOK, setloginOK] = useState(false);
   const token_connect: string = Cookies.get('token')!;
   const path = window.location.pathname;
@@ -21,7 +21,7 @@ const App: React.FC = () => {
  
   useEffect(() => {
     
-
+    
     if (!token_connect || token_connect.length !== 196) {
       if (window.location.pathname !== '/' && window.location.pathname !== `/logout/${pathName}`) {
        
@@ -54,7 +54,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/err" element={<ErreurPage/>} />
           {loginOK === true && <Route path="/home" element={<Home/>} />}
-          <Route path="/" element={<Login loginOK={loginOK} setloginOK={setloginOK} />} />
+          <Route path="/" element={<Login loginOK={loginOK} setloginOK={setloginOK}/>}/>
           {loginOK === false && <Route path="/logout/:id" element={<Logout/>} />}
         </Routes>
       </BrowserRouter>

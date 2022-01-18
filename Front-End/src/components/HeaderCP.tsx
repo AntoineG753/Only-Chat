@@ -8,7 +8,7 @@ const HeaderCP: React.FC = () => {
  
     
   return (
-    <div id="header" className="HeaderCP-main-container col-12 bg-color-dark d-flex p-4 pt-2 pb-2 justify-content-between">
+    <div className="HeaderCP-main-container col-12 bg-color-dark d-flex p-4 pt-2 pb-2 justify-content-between">
       <img src={Logo} alt="Logo only chat" className=" col-3"/>
       
       <p className="m-0 d-flex align-items-center">Bonjour, <br/>{user.pseudo}</p>
