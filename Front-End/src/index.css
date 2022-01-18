@@ -24,7 +24,9 @@ button, input[type="submit"], input[type="reset"] {
 p {
   color: #fff;
 }
-
+.home-container {
+  flex-grow: 2;
+}
 .input-chat {
   resize: none;
   border: none;

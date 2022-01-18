@@ -11,7 +11,10 @@ const Chat: React.FC = () => {
 
 
   useEffect(() => {
-    setheightChatMainContainer(window.innerHeight - document.getElementById("header")!.offsetHeight)
+      console.log(window.screen.height)
+      console.log(document.getElementById("header")!.offsetHeight)
+      console.log(window.screen.height - document.getElementById("header")!.offsetHeight)
+    setheightChatMainContainer(window.screen.height - document.getElementById("header")!.offsetHeight)
 
     window.addEventListener("resize", function (event) {
         setheightChatMainContainer(window.innerHeight - document.getElementById("header")!.offsetHeight)
@@ -19,11 +22,11 @@ const Chat: React.FC = () => {
 
   }, [heightChatMainContainer]);
 
-    
+    console.log(window.screen.height)
   return (
-    <div className="Chat-main-container col-12 d-flex flex-column pt-0 pb-0 p-2" style={{ height: `${heightChatMainContainer}px` }}>
+    <div className="Chat-main-container col-12 d-flex flex-column pt-0 pb-0 p-2" >
       <div className="top-continer border ">
-      <i className="fas fa-sync-alt mt-2 mb-2"/>
+        <i className="fas fa-sync-alt mt-2 mb-2"/>
       </div>
       <div className="middle-container border">
         middle

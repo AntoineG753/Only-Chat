@@ -47,7 +47,7 @@ const Home: React.FC = () => {
     }, [user.uuid]);
 
     return (
-        <div className="home-main-container col-12 ">
+        <div className="home-main-container col-12 d-flex flex-column">
             <HeaderCP/>
             <div className="home-container bg-color-darkSM">
               <Chat/>
