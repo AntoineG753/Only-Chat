@@ -18,7 +18,16 @@ export const socketIO = (server) => {
   io.on("connection", (socket) => {
     console.log("un utilisateru c'est connecté: " + socket.id);
 
-    socket.join("full-topic");
+
+
+
+    //enter the ramdom room
+    socket.on("enter_room", (room) => {
+
+      socket.join(room)
+      console.log(room)
+
+  });
 
     // on ecoute les deconnexions
     socket.on("disconnect", () => {

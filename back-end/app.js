@@ -1,6 +1,6 @@
 import express from 'express';
-// import helmet from 'helmet';
-// import userRoutes from './routes/users.js';
+import helmet from 'helmet';
+import userRoutes from './routes/users.js';
 // import categoryRoutes from './routes/category.js';
 // import subCategoryRoutes from './routes/subCategory.js';
 // import chatRoomRoutes from './routes/chatRoom.js';
@@ -9,7 +9,7 @@ import express from 'express';
 const app = express();
 
 
-// app.use(helmet());
+app.use(helmet());
 
 
 app.use((req, res, next) => {
@@ -23,8 +23,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json());  
 
 
-// app.use('/pictures', express.static('pictures'));
-// app.use('/api/auth', userRoutes);
+app.use('/pictures', express.static('pictures'));
+app.use('/api/auth', userRoutes);
 // app.use('/api/category', categoryRoutes);
 // app.use('/api/subCategory', subCategoryRoutes);
 // app.use('/api/chatRoom', chatRoomRoutes);

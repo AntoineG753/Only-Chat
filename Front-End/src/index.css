@@ -12,6 +12,24 @@ code {
     monospace;
 }
 
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+p {
+  color: #fff;
+}
+
+.input-chat {
+  resize: none;
+  border: none;
+}
+
 .bg-blur-3 {
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(15px);
@@ -23,11 +41,16 @@ code {
   background-color: rgb(107, 107, 107);
 }
 
-.bg-color-68{
-  background-color: rgb(68, 68, 68);
+.bg-color-darkSM {
+  background-color:rgb(54, 57, 63)
 }
 
-.connection-container{
+.bg-color-dark {
+  background-color:rgb(41, 43, 48)
+}
+
+
+.LoginCP-container{
   width: 30vw;
   height: 20vw;
 }
@@ -46,4 +69,17 @@ code {
 }
 .z-index-5 {
   z-index: 5;
+}
+.font-size-text-info-sm {
+  font-size: 0.7rem;
+}
+
+/* FORM LOGGIN ---------------------------- */
+.LoginCP-container, .RegisterCP-container {
+  min-height: 24rem;
+}
+
+ /* LOGOUT ---------------------- */
+.logout-main-container {
+  background-color: rgb(175, 175, 175);
 }
