@@ -9,15 +9,11 @@ import SecretKey from '../components/secretKey'
 let socket;
 
 
+type Props = {secretKey: string, setsecretKey: Function, user: any, listUserConnected: any}
 
-
-const Home: React.FC = () => {
-    const dispatch = useDispatch()
-    let user = useSelector((state: State) => state.user);
-    let listUserConnected = useSelector((state: State) => state.listUserConnected);
-    const secretKey = useSelector((state: State) => state.secretKey);
-    console.log(user)
-    console.log(listUserConnected)
+const Home: React.FC<Props> = ({ secretKey, setsecretKey, user, listUserConnected }: Props) => {
+  const dispatch = useDispatch();
+  
     
 
     
@@ -28,12 +24,9 @@ const Home: React.FC = () => {
     }
 
     
-    // window.onload = function () {
-    //   inactivityTime();
-    // };
-
+    
     useEffect(() => {
-      
+     
       var inactivityTime = function () {
         var time: NodeJS.Timeout;
         resetTimer();
@@ -43,27 +36,25 @@ const Home: React.FC = () => {
   
         function resetTimer() {
           clearTimeout(time);
-          time = setTimeout(logout, 600000);
+          time = setTimeout(logout, 1200000);
           // 600000 milliseconds = 10 min
         }
       };
       inactivityTime();
-     
-      socket = io("http://192.168.1.95:5000/", { query: user.uuid });
-      socket.emit('userLogged', user);
-      socket.on('userConnected', (userConnected) => {
-        dispatch({ type: 'receiveListConnected', payload: userConnected})
-      })
-      
-      
-    }, [user.uuid,user,dispatch,secretKey]);
 
+     
+     
+    }, []);
+
+    console.log(user)
+    console.log(listUserConnected)
+    
     return (
         <div className="home-main-container col-12 d-flex flex-column">
-            <SecretKey secretKey={secretKey}/>
+            {secretKey && <SecretKey secretKey={secretKey} setsecretKey={setsecretKey}/>}
             <HeaderCP/>
             <div className="home-container bg-color-darkSM">
-              <Chat/>
+            {user.uuid && !secretKey && <Chat user={user}/>}
             </div>
         </div>
     )

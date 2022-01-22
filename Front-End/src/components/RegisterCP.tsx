@@ -8,9 +8,9 @@ import { useNavigate } from "react-router-dom";
 
 
 type register = { [x: string]: any;}
-type Props = {registerCP: Boolean, setregisterCP: Function, loginOK: Boolean, setloginOK: Function}
+type Props = {registerCP: Boolean, setregisterCP: Function, setsecretKey: Function}
 
-const RegisterCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setloginOK}: Props) => {
+const RegisterCP: React.FC<Props> = ({ registerCP, setregisterCP, setsecretKey}: Props) => {
     const navigate = useNavigate()
     const { register, handleSubmit, reset } = useForm();
     const dispatch = useDispatch();
@@ -36,9 +36,8 @@ const RegisterCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setlo
                 reset();
                 console.log(res);
                 Cookies.set('token', `${res.data.token}`, { expires: 1 });
-                
-                setloginOK(true);
-                // window.location.href = '/home';
+                setsecretKey(res.data.secretKey)
+                dispatch({ type: 'get_userInfo', payload: res.data.user })
                 navigate('/home')
             })
             .catch(error => {seterrStatus(error.response.status);})  
@@ -63,7 +62,7 @@ const RegisterCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setlo
 
   return (
       <div className="LoginCP-container position-relative bg-color-dark rounded shadow p-4 col-10">
-        <h1 className="text-center mt-1">Inscription</h1>
+        <h1 className="text-center mt-1 color-titre">Inscription</h1>
         <div className="d-flex justify-content-center row mt-4">
             <form className="form-LoginCP d-flex justify-content-center flex-column col-12" onSubmit={handleSubmit(onSubmitRegister)}>
                 <label htmlFor="pseudo-register" className="mt-2 text-white">Pseudo : </label>

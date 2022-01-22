@@ -8,11 +8,17 @@ interface ListConnected {
     payload: any;
 }
 
-interface receiveSecretKey {
-    type: "secretKey";
+interface receivedMSG {
+    type: "receivedMessage";
+    payload: any;
+}
+
+interface clearMSG {
+    type: "clearMessage";
     payload: any;
 }
 
 export type GetInfoUser = get_userInfo;
 export type receiveListConnected = ListConnected;
-export type secretKey = receiveSecretKey;
+export type receivedMessage = receivedMSG;
+export type clearMessage = clearMSG;

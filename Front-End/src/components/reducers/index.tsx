@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux';
 import userInfo from "./userInfo"
 import listUserConnected from './listConnected'
-import SecretKey from './secretKey'
+import receivedMessages from './receivedMSG'
+import clearMessage from './receivedMSG'
 
 const rootReducer = combineReducers({
     user: userInfo,
     listUserConnected: listUserConnected,
-    secretKey: SecretKey
+    receivedMessage: receivedMessages,
+    clearMessage: clearMessage
   });
 
 

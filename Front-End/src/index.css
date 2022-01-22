@@ -1,4 +1,6 @@
 body {
+  height: 100vh;
+  max-height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -13,9 +15,11 @@ code {
 }
 #root {
   height: 100vh;
+  max-height: 100vh;
 }
 .App {
-  height: 100vh;
+  height: 100%;
+  max-height: 100%;
 }
 
 button, input[type="submit"], input[type="reset"] {
@@ -30,6 +34,12 @@ button, input[type="submit"], input[type="reset"] {
 p {
   color: #fff;
 }
+.color-h-cgu {
+  color: rgb(49, 37, 158);
+}
+.color-titre {
+  color: rgb(146, 172, 202);
+}
 textarea:focus {
   border: none;
   outline: none;
@@ -37,9 +47,6 @@ textarea:focus {
 }
 
 
-.home-container {
-  flex-grow: 2;
-}
 .input-chat {
   resize: none;
   border: none;
@@ -64,9 +71,6 @@ textarea:focus {
   background-color:rgb(41, 43, 48)
 }
 
-.home-main-container {
-  height: 100vh;
-}
 
 .LoginCP-container{
   width: 30vw;
@@ -95,12 +99,24 @@ textarea:focus {
 
 /* HEADER ------------------- */
 .HeaderCP-main-container {
-  border-bottom: 2px solid rgb(33, 35, 39)
+  border-bottom: 2px solid rgb(33, 35, 39);
+  
+}
+/* CGU */
+.cgu-main-container {
+  height: 100vh;
+  width: 100vw;
 }
 
 /* FORM LOGGIN ---------------------------- */
 .LoginCP-container, .RegisterCP-container {
   min-height: 24rem;
+}
+.close-building {
+  background-color: red;
+  width: 5vw;
+  height: 5vw;
+
 }
 
  /* LOGOUT ---------------------- */
@@ -108,20 +124,150 @@ textarea:focus {
   background-color: rgb(175, 175, 175);
 }
 
+/* HOME */
+
+
+.home-main-container{
+  height: 100%;
+  max-height: 100%;
+}
+
+.home-container {
+  flex-grow: 1;
+  max-height: 100%;
+}
 
 /* CHATCP ---------------------- */
-.Chat-main-container {
+.msg-container::-webkit-scrollbar { 
+  display: none; 
+}
+.top-continer {
+  
+}
+.rounded-msg {
+  border-radius: 1.2rem;
+}
+.middle-container{
   flex-grow: 1;
+  overflow: scroll;
+  /* height: 100%;
+  max-height: 100%; */
+}
+.msg-container {
+  max-height: 100%;
+  overflow: scroll;
+}
+
+.Chat-main-container {
+  max-height: 100%;
+}
+#div_imgPreview {
+  margin-top: 100%;
+}
+.btn_imgPreview_chat {
+  background-color: red;
+  width: 5vw;
+  height: 5vw;
+  right: 0;
+  transform: translate(+50%, -50%);
+}
+.p-my-message {
+  width:fit-content;
+  margin-left: auto;
+  margin-bottom: 0 ;
+}
+.p-other-message {
+  width:fit-content;
+  margin-right: auto;
+  margin-bottom: 0 ;
+}
+.font-size-date-msg {
+  font-size: 3vw;
 }
 .fa-paper-plane {
   color: rgb(148, 156, 247);
-  font-size: 5vw;
+  font-size: 6.5vw;
 }
 .fa-folder-plus {
   color: rgb(185, 187, 190);
-  font-size: 6.5vw;
+  font-size: 7vw;
 }
 .fa-sync-alt {
   font-size: 6.5vw;
 }
-
+.fa-times-circle {
+  font-size: 5vw;
+}
+.fa-user{
+  font-size: 6vw;
+  color:rgb(3, 190, 87);
+}
+.fa-plus-square {
+  font-size: 7.5vw;
+}
+.fa-search {
+  font-size: 6.5vw;
+}
+.msg-bg-color {
+  background-color: rgb(182, 181, 181)
+}
+.msg-blue{
+  background-color:rgb(98, 203, 238)
+}
+.msg-green{
+  background-color:rgb(177, 236, 214)
+}
+.msg-yellow{
+  background-color: rgb(223, 222, 189);
+}
+.msg-purple{
+  background-color:rgb(219, 166, 218)
+}
+.msg-grey{
+  background-color: rgb(206, 206, 206)
+}
+.msg-turquoise{
+  background-color: rgb(139, 235, 225)
+}
+.msg-red{
+  background-color: rgb(247, 174, 174)
+}
+.msg-navy_blue{
+  background-color: rgb(161, 161, 221)
+}
+.msg-violet{
+  background-color: rgb(228, 129, 228)
+}
+.msg-brown{
+  background-color: rgb(214, 156, 156)
+}
+.msg-cyan{
+  background-color: rgb(145, 226, 226)
+}
+.msg-corail{
+  background-color: rgb(228, 199, 147)
+}
+.msg-prune{
+  background-color: rgb(248, 134, 68)
+}
+.msg-salmon{
+  background-color: rgb(241, 149, 115)
+}
+.msg-red_bright{
+  background-color: rgb(252, 142, 142)
+}
+.msg-green_bright{
+  background-color: rgb(164, 221, 164)
+}
+.msg-dark_cyan{
+  background-color: rgb(34, 158, 158)
+}
+.msg-goldenrod{
+  background-color: rgb(219, 208, 146)
+}
+.msg-dark_slate_gray{
+  background-color: rgb(182, 181, 181)
+}
+.msg-golden{
+  background-color: rgb(201, 181, 67)
+}

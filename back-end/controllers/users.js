@@ -37,14 +37,23 @@ export const signup = (req, res, next) => {
                         function (error, Result) {
                             if (error) throw error;
                             
-                            res.status(201).json({ 
-                                message: 'Enregistration confirmée', 
-                                secretKey: secretKey, 
-                                token: jwt.sign(
-                                { userToken: uuid },
-                                process.env.SECRET_TOKEN_KEY,
-                                { expiresIn: '12h' },
-                            )})
+                            const Login = sqlLogin(
+                                req.body.pseudo
+                            )
+                            DB.query(
+                                Login,
+                                function (error, Result) {
+                                    if (error) throw error;
+                                    res.status(201).json({
+                                        user: Result[0],
+                                        secretKey: secretKey, 
+                                        token: jwt.sign(
+                                        { userToken: uuid },
+                                        process.env.SECRET_TOKEN_KEY,
+                                        { expiresIn: '12h' },
+                                    )})
+                                }
+                            )
                         }
                     )
                 });
@@ -97,10 +106,10 @@ export const login = (req, res, next) => {
                             );
                             DB.query(
                                 NumberLogin,        
-                                (err) => {
+                                (err, Result) => {
                                     if (err) throw err;
                                     res.status(201).json({ 
-                                        message: 'Enregistration confirmée',  
+                                        user: result[0],  
                                         token: jwt.sign(
                                         { userToken: result[0].uuid },
                                         process.env.SECRET_TOKEN_KEY,
@@ -157,6 +166,7 @@ export const connectAuth = (req, res, next) => {
                                     pseudo: Result[0].pseudo,
                                     admin: Result[0].admin,
                                     ban: Result[0].ban,
+                                    vip: Result[0].vip,
                                     creation_date: Result[0].creation_date,
                                     number_connections: Result[0].number_connections
                                 }]

@@ -1,14 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
 type login = {[x: string]: string}
-type Props = {registerCP: Boolean, setregisterCP: Function, loginOK: Boolean, setloginOK: Function}
+type Props = {registerCP: Boolean, setregisterCP: Function}
 
-const LoginCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setloginOK }: Props) => {
+const LoginCP: React.FC<Props> = ({ registerCP, setregisterCP }: Props) => {
     const navigate = useNavigate()
+    const dispatch = useDispatch();
     const { register, handleSubmit, reset } = useForm();
     const  [errorMsg, seterrorMsg] = useState<string>("");
     const [errStatus, seterrStatus] = useState<number>();
@@ -28,8 +30,9 @@ const LoginCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setlogin
               reset();
               console.log(res);
               Cookies.set('token', `${res.data.token}`, { expires: 1 });
-              setloginOK(true);
-              navigate('/home')
+              dispatch({ type: 'get_userInfo', payload: res.data.user })
+              navigate('/home');
+              
           })
           .catch(error => {seterrStatus(error.response.status); seterrorMsg(error.response.data.msg); console.log(error)})  
       } else {
@@ -52,7 +55,7 @@ const LoginCP: React.FC<Props> = ({ registerCP, setregisterCP, loginOK, setlogin
     
   return (
       <div className="LoginCP-container position-relative bg-color-dark rounded shadow p-4 col-10">
-        <h1 className="text-center">Only Chat</h1>
+        <h1 className="text-center color-titre">Only Chat</h1>
         <div className="d-flex justify-content-center mt-3">
             <form className="form-LoginCP d-flex justify-content-center flex-column col-12" onSubmit={handleSubmit(onSubmitLogin)}>
                 <label htmlFor="pseudo-loggin" className="mt-2 text-white">Pseudo : </label>
