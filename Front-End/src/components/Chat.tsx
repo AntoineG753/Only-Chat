@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
-import { useSelector , useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import CreateChat from './CreateChat'
-import {State} from '../components/reducers';
 import io from 'socket.io-client';
 let socket :any;
 

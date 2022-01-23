@@ -1,10 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 import userRoutes from './routes/users.js';
-// import categoryRoutes from './routes/category.js';
-// import subCategoryRoutes from './routes/subCategory.js';
-// import chatRoomRoutes from './routes/chatRoom.js';
-// import searchRoutes from './routes/search.js';
+
 
 const app = express();
 
@@ -25,9 +22,6 @@ app.use(express.json());
 
 app.use('/pictures', express.static('pictures'));
 app.use('/api/auth', userRoutes);
-// app.use('/api/category', categoryRoutes);
-// app.use('/api/subCategory', subCategoryRoutes);
-// app.use('/api/chatRoom', chatRoomRoutes);
-// app.use('/api/search', searchRoutes);
+
 
  export default app;

@@ -1,20 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Cookies from 'js-cookie';
-import { useDispatch, useSelector } from 'react-redux';
-import {State} from '../components/reducers';
-import io from 'socket.io-client';
 import HeaderCP from '../components/HeaderCP'
 import Chat from '../components/Chat'
 import SecretKey from '../components/secretKey'
-let socket;
+
 
 
 type Props = {secretKey: string, setsecretKey: Function, user: any, listUserConnected: any}
 
 const Home: React.FC<Props> = ({ secretKey, setsecretKey, user, listUserConnected }: Props) => {
-  const dispatch = useDispatch();
-  
-    
 
     
     function logout() {

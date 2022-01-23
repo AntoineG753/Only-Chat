@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import {State} from '../components/reducers/index';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+
 
 type Props = {secretKey: string, setsecretKey: Function}
 

@@ -10,8 +10,7 @@ import Logout from './layouts/Logout';
 import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import {State} from './components/reducers';
-import io from 'socket.io-client';
-let socket;
+
 
 const App: React.FC = () => {
   const [secretKey, setsecretKey] = useState<string>("");

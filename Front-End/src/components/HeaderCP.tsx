@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
 import {State} from '../components/reducers';
 const Logo = require('./pictures/logo.png');

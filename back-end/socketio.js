@@ -142,7 +142,7 @@ export const socketIO = (server) => {
 
     // on ecoute les deconnexions
     socket.on("disconnect", () => {
-      // console.log(_user)
+    
 
       // leave room -------------
       leaveRomm()
