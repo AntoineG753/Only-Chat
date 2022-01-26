@@ -1,6 +1,9 @@
-import express from 'express';
-import helmet from 'helmet';
-import userRoutes from './routes/users.js';
+// import express from 'express';
+// import helmet from 'helmet';
+// import userRoutes from './routes/users.js';
+const express = require('express');
+const helmet = require('helmet');
+const userRoutes = require('./routes/users.js')
 
 
 const app = express();
@@ -23,5 +26,5 @@ app.use(express.json());
 app.use('/pictures', express.static('pictures'));
 app.use('/api/auth', userRoutes);
 
-
- export default app;
+module.exports = app;
+// export default app;

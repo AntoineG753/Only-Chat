@@ -1,9 +1,10 @@
-import { Server } from "socket.io";
+// import { Server } from "socket.io";
+const { Server } = require("socket.io");
 // import { DB } from './connectDB.js';
 // import multer from 'multer';
 // import jwt from "jsonwebtoken";
 
-export const socketIO = (server) => {
+exports.socketIO = (server) => {
   const io = new Server(server, {
     cors: {
       origin: "*",

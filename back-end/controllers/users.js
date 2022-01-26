@@ -1,12 +1,20 @@
-import { DB } from '../connectDB.js';
-import { sqlSignup, sqlCheckPseudo, sqlGetAccount, sqlLogin, sqlNumberLogin} from '../utils/scriptSQL.js';
-import bcrypt from 'bcrypt';
-import { v5 as uuidv5 } from 'uuid';
-import CryptoJS from 'crypto-js';
-import jwt from 'jsonwebtoken';
-import { } from 'dotenv/config'
+// import { DB } from '../connectDB.js';
+// import { sqlSignup, sqlCheckPseudo, sqlGetAccount, sqlLogin, sqlNumberLogin} from '../utils/scriptSQL.js';
+// import bcrypt from 'bcrypt';
+// import { v5 as uuidv5 } from 'uuid';
+// import CryptoJS from 'crypto-js';
+// import jwt from 'jsonwebtoken';
+// import { } from 'dotenv/config'
 
-export const signup = (req, res, next) => {
+const { DB } = require("../connectDB.js");
+const { sqlSignup, sqlCheckPseudo, sqlGetAccount, sqlLogin, sqlNumberLogin} = require("../utils/scriptSQL.js");
+const bcrypt = require("bcrypt");
+const { v5 } = require("uuid");
+const CryptoJS = require("crypto-js");
+const jwt = require("jsonwebtoken");
+const { } = require("dotenv/config");
+
+exports.signup = (req, res, next) => {
 
     
     const checkPseudo = sqlCheckPseudo(
@@ -21,7 +29,7 @@ export const signup = (req, res, next) => {
                     return res.status(400).json({ msg: 'pseudo existe deja' });    
             } else {
                 
-                const uuid = uuidv5(req.body.pseudo, process.env.KEY_UUID);
+                const uuid = v5(req.body.pseudo, process.env.KEY_UUID);
                 const secretKey = `${process.env.PSW_SECRET_KEY, CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(uuid))}`
                 console.log(secretKey)
                 bcrypt.hash(secretKey, 10, function (err, hash) {
@@ -67,7 +75,7 @@ export const signup = (req, res, next) => {
 };
 
 
-export const login = (req, res, next) => {
+exports.login = (req, res, next) => {
 
     // check email already exist 
     const checkPseudo = sqlCheckPseudo(
@@ -128,7 +136,7 @@ export const login = (req, res, next) => {
 };
 
 
-export const connectAuth = (req, res, next) => {
+exports.connectAuth = (req, res, next) => {
 
     if (!req.body.authorization) {
         res.status(401).json({ msg: "pas de token" })

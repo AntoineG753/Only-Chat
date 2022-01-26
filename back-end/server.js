@@ -1,6 +1,9 @@
-import { createServer } from 'http';
-import app from './app.js';
-import { socketIO } from './socketio.js';
+// import { createServer } from 'http';
+const { createServer } = require('http');
+const app = require('./app.js');
+// import app from './app.js';
+// import { socketIO } from './socketio.js';
+const { socketIO } = require('./socketio.js');
 
 const normalizePort = val => {
   const port = parseInt(val, 10);

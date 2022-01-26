@@ -1,10 +1,14 @@
-import { DB } from "../connectDB.js";
-import jwt from "jsonwebtoken";
-import { sqlAuthUuid } from "../utils/scriptSQL.js";
+// import { DB } from "../connectDB.js";
+// import jwt from "jsonwebtoken";
+// import { sqlAuthUuid } from "../utils/scriptSQL.js";
+
+const { DB } = require("../connectDB.js");
+const jwt = require("jsonwebtoken");
+const { sqlAuthUuid } = require("../utils/scriptSQL.js");
 
 
 
-export const auth = (req, res, next) => {
+exports.auth = (req, res, next) => {
     
    
     const sqlauthUuid = sqlAuthUuid(

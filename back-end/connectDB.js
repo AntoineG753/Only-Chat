@@ -1,4 +1,5 @@
-import { createConnection } from 'mysql';
+// import { createConnection } from 'mysql';
+const { createConnection } = require('mysql');
 
 // Create connection 
 const DB = createConnection({
@@ -15,4 +16,4 @@ DB.connect ((err) => {
 });
 
 
-export { DB };
+module.exports = { DB };

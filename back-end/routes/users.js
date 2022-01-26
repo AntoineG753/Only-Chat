@@ -1,10 +1,17 @@
-import { Router } from 'express';
-const router = Router();
-import { signup, connectAuth, login } from '../controllers/users.js';
-import Joi from 'joi';
-import { auth } from '../middleware/auth.js';
-import multer from '../middleware/multer-config.js';
+// import { Router } from 'express';
+
+// import { signup, connectAuth, login } from '../controllers/users.js';
+// import Joi from 'joi';
+// import { auth } from '../middleware/auth.js';
+// import multer from '../middleware/multer-config.js';
 // import { authAdmin } from '../middleware/authAdmin.js';
+
+const { Router } = require('express');
+const router = Router();
+const { signup, connectAuth, login  } = require('../controllers/users.js');
+const Joi = require('joi');
+const { auth } = require('../middleware/auth.js');
+const multer = require('multer');
 
 
 // const testShemaValide = data => {
@@ -54,4 +61,4 @@ router.post('/login', (req, res) => {
 
 router.post('/connectAuth', connectAuth);
 
-export default router;
+module.exports = router;

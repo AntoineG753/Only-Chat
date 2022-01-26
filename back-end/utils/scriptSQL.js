@@ -1,27 +1,27 @@
 
 // USERS 
 
-export const sqlAuthUuid = (uuid) => {
+exports.sqlAuthUuid = (uuid) => {
     return `SELECT uuid FROM user WHERE uuid = "${uuid}"`
 };
 
-export const sqlCheckPseudo = (pseudo) => {
+exports.sqlCheckPseudo = (pseudo) => {
     return `SELECT pseudo FROM users WHERE pseudo='${pseudo}'`;
 };
 
-export const sqlSignup = (pseudo, secretKey, uuid) => {
+exports.sqlSignup = (pseudo, secretKey, uuid) => {
     return `INSERT INTO users  (pseudo, secretKey, uuid) VALUES ("${pseudo}", "${secretKey}", "${uuid}")`;
 };
 
-export const sqlGetAccount = (uuid) => {
+exports.sqlGetAccount = (uuid) => {
     return `SELECT * FROM users WHERE uuid = '${uuid}'`
 }
 
-export const sqlLogin = (pseudo) => {
+exports.sqlLogin = (pseudo) => {
     return `SELECT * FROM users WHERE pseudo = '${pseudo}'`
 };
 
-export const sqlNumberLogin = (number_connections, uuid) => {
+exports.sqlNumberLogin = (number_connections, uuid) => {
     return `Update users SET number_connections = '${number_connections}'  WHERE uuid = '${uuid}'`
 };
 
